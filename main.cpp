@@ -1,5 +1,5 @@
 /*  LOOK HERE
-##### Compile in terminal with the following commands
+Compile using the following commands
 1.  'g++ main.cpp DataManager.cpp -o mainExecutable'
 2.  and then '.\mainExecutable'
 */
