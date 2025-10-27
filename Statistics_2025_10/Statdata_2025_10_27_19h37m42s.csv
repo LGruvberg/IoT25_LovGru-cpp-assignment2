@@ -1,0 +1,16 @@
+Index	|	Value
+	1	|	13.7741
+	2	|	12.1438
+	3	|	28.7069
+	4	|	38.4023
+	5	|	71.034
+	6	|	59.7503
+
+.:STATISTICS:.
+METRIC		|	VALUE
+Sum      	|	223.812
+Mean     	|	37.3019
+Lowest   	|	12.1438
+Highest  	|	71.034
+Variance 	|	580.672
+StdDevi  	|	24.0971

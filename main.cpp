@@ -1,5 +1,11 @@
+/*  LOOK HERE
+##### Compile in terminal with the following commands
+1.  'g++ main.cpp DataManager.cpp -o mainExecutable'
+2.  and then '.\mainExecutable'
+*/
+
 #include <iostream>
-#include "DataManager.h"
+#include "DataManager.hpp"
 
 void interface();
 
@@ -9,6 +15,7 @@ int main() {
     do {
         interface();
         std::cin >> choice;
+        
 
         switch (choice) {
         case 1: {
@@ -22,10 +29,11 @@ int main() {
         case 2: std::cout << std::endl; dm.statFunc(); break;
         case 3: dm.searchFunc(); break;
         case 4: dm.sortFunc(); break;
-        //case 5: dm.saveToFileFunc(); break;
+        case 5: dm.convertIntoFile(); break;
         case 6: std::cout << "\nExiting...\n"; break;
         default: 
             std::cout << "Invalid option.\n"; break;
+            continue;
         }
     } while (choice != 6);
 
