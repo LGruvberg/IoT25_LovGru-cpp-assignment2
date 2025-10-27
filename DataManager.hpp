@@ -1,7 +1,4 @@
-// #pragma once
-#ifndef DATAMANAGER_HPP
-#define DATAMANAGER_HPP
-
+#pragma once
 #include <vector>
 
 class DataManager {
@@ -18,7 +15,7 @@ public:
     void statFunc() const;
     void searchFunc() const;
     void sortFunc();
-    void convertIntoFile();     // Привет, как дела?
+    void convertIntoFile();     
     
     private:
     //void interface() const;
@@ -27,5 +24,3 @@ public:
     double meanFunc() const;
     double varianceFunc() const;
 };
-
-#endif
