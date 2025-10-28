@@ -17,6 +17,17 @@ namespace fs = std::filesystem;
 
 DataManager::DataManager() : valueAmountLimit(0) {}
 
+void DataManager::interface() {
+    std::cout 
+        << "\n1. Add values" 
+        << "\n2. Statistics" 
+        << "\n3. Search" 
+        << "\n4. Sort" 
+        << "\n5. Save to .csv" 
+        << "\n6. EXIT" 
+        << "\n9. [BONUS] BMI calculator\n\n\tChoice:\t";
+}
+
 void DataManager::setValueAmountLimit(int limit) {
     valueAmountLimit = limit;
 }
@@ -53,6 +64,35 @@ void DataManager::dataEntry() {
             badInput();
         }
     }
+}
+
+double DataManager::bmiCalc() const {
+    double 
+        height_cm, 
+        weight_kg, 
+        height_m, bmi;
+    
+    std::cout << "\nTime to calculate BMI!\n";
+    std::cout << "\nHow tall are you? (cm)\nAnswer:\t";
+    std::cin >> height_cm;
+    std::cout << "\nHow much do you weigh? (kg)\nAnswer:\t";
+    std::cin >> weight_kg;
+
+    height_m = height_cm / 100.0;  // Convert cm to meters
+    bmi = weight_kg / (height_m * height_m);
+
+    std::cout << "Your BMI is: " << bmi << std::endl;
+
+    if (bmi < 18.5)
+        std::cout << "You are what the doctors call Underweight" << std::endl;
+    else if (bmi < 24.9)
+        std::cout << "You are what the doctors call Normal weight" << std::endl;
+    else if (bmi < 29.9)
+        std::cout << "You are what the doctors call Overweight" << std::endl;
+    else
+        std::cout << "You are what the doctors call Obesity" << std::endl;
+        
+    return bmi;
 }
 
 void DataManager::rndFunc() {
@@ -115,7 +155,7 @@ void DataManager::searchFunc() const {
         std::cout << s << " could not be found.\n\n";
     }
 }
-/////////////////////////////////////////////
+
 void DataManager::sortFunc() {
     if (data.empty()) {
         std::cout << "There's nothing to sort (hint: menu option '1'!)\n\n";
@@ -141,9 +181,8 @@ void DataManager::sortFunc() {
         std::cout << "\t" << v;
         std::cout << "\n";
     }
-    
 }
-/////////////////////////////////////////////
+
 double DataManager::sumFunc() const {
     return std::accumulate(data.begin(), data.end(), 0.0);
 }
@@ -188,21 +227,6 @@ void DataManager::convertIntoFile() {
         std::cerr << "Failed to create file: " << file_path << ".\n";
         return;
     }
-    
-    // //  CREATE FOLDER
-    // fs::path folder_path = fs::current_path() / folder_name;
-    // fs::create_directories(folder_path);
-    // fs::path file_path = folder_path / file_name;
-    // std::ofstream outputFile(file_path);
-    // if (!outputFile) {
-    //     std::cerr << "Failed to create file at: " << file_path << ".\n";
-    //     return;
-    // }
-    // //  Write header and data
-    // for (size_t i = 0; i < data.size(); i++) {
-    //     // outputFile << "Index,Value\n";
-    //     outputFile << (i + 1) << ", " << data[i] << "\n";
-    // }
 
     //  Write data
     outputFile << "Index\t|\tValue\n";  // Column headers
@@ -210,14 +234,14 @@ void DataManager::convertIntoFile() {
         outputFile << "\t" << (i + 1) << "\t|\t" << data[i] << "\n";
     }
 
-    // outputFile << statFunc;
-    
+    // outputFile << statFunc;   
     double sum = sumFunc();
     double mean = meanFunc();
     double minVal = *min_element(data.begin(), data.end());
     double maxVal = *max_element(data.begin(), data.end());
     double variance = varianceFunc();
     double stdDevi = sqrt(variance);
+    double bmi = bmi;
     
     outputFile << "\n.:STATISTICS:.\n";
     outputFile << "METRIC\t\t|\tVALUE\n";
@@ -227,7 +251,8 @@ void DataManager::convertIntoFile() {
     outputFile << "Highest  \t|\t"  << maxVal << "\n";
     outputFile << "Variance \t|\t"  << variance << "\n";
     outputFile << "StdDevi  \t|\t"  << stdDevi << "\n";
-    
+    outputFile << "BMI  \t|\t"  << bmiCalc << "\n"; // Print this in convert file?
+
     outputFile.close();
     std::cout << "New .csv file located at: " << file_path << ".\n";
 }
