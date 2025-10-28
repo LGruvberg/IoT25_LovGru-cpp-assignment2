@@ -5,17 +5,18 @@ class DataManager {
 private:
     std::vector<double> data;
     int valueAmountLimit;
-
-public:
+    
+    public:
     DataManager();
-
     void setValueAmountLimit(int limit);
     void dataEntry();
     void rndFunc();
     void statFunc() const;
     void searchFunc() const;
     void sortFunc();
-    void convertIntoFile();     
+    void convertIntoFile();
+    void interface();
+    double bmiCalc() const;
     
     private:
     //void interface() const;
