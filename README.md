@@ -8,4 +8,6 @@ At least this was necessary for me in order to compile both files 'main.cpp' and
 This repo contains code solutions for assignment2 in the course C/C++ Programming
 
 [LINK TO THIS ASSIGNMENT2](https://github.com/LGruvberg/IoT25_LovGru-cpp-assignment2)
+
+
 [LINK TO PREVIOUS ASSIGNMENT1](https://github.com/LGruvberg/IoT25_LovGru-cpp-assignment1.git)
