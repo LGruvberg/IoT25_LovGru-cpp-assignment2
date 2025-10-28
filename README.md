@@ -10,4 +10,4 @@ This repo contains code solutions for assignment2 in the course C/C++ Programmin
 - [LINK TO THIS ASSIGNMENT2](https://github.com/LGruvberg/IoT25_LovGru-cpp-assignment2)
 
 - [LINK TO PREVIOUS ASSIGNMENT1](https://github.com/LGruvberg/IoT25_LovGru-cpp-assignment1.git)
--   ->  [Assignment1 README.md](https://github.com/LGruvberg/IoT25_LovGru-cpp-assignment2/blob/main/README.md)
+-   ->  [Assignment1 README.md](https://github.com/LGruvberg/IoT25_LovGru-cpp-assignment1/blob/main/README.md)
